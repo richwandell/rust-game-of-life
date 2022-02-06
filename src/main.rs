@@ -17,7 +17,7 @@ pub struct App {
     game_running: bool
 }
 
-const BLACK: [f32; 4] = [0.0, 0.0, 0.0, 1.0];
+const BLACK: [f32; 4] = [0.0, 0.0, 0.0, 0.5];
 const WHITE: [f32; 4] = [1.0, 1.0, 1.0, 1.0];
 const GREEN: [f32; 4] = [0.0, 1.0, 0.0, 1.0];
 const RED: [f32; 4] = [1.0, 0.0, 0.0, 1.0];
@@ -48,7 +48,7 @@ impl App {
                 for c in 0..r_len {
                     if state[r][c] {
                         let x = (args.window_size[0] * (c as f64 / r_len as f64));
-                        let square = rectangle::square(x, y, 10.0);
+                        let square = rectangle::square(x, y, args.window_size[0] / r_len as f64);
                         rectangle(RED, square, context.transform, gl);
                     }
                 }
